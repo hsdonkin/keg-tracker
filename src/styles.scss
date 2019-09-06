@@ -172,3 +172,52 @@ hr {
   font-style: italic;
   color: gray;
 }
+
+.hero {
+  text-align: center;
+}
+.hero .image-holder {
+  display: inline-block;
+  width: 80%;
+  border: none;
+  margin: none;
+  margin-top: 1.5rem;
+  object-fit: cover;
+}
+.hero .image-holder img {
+  border-radius: 30px;
+  height: 100%;
+  width: 100%;
+  filter: brightness(50%);
+  z-index: -1;
+}
+
+.hero .image-holder h2 {
+  margin-left: 5vw;
+  color: white;
+  font-size: 10vw;
+  position: absolute;
+  z-index: 1;
+}
+.hero .image-holder h3 {
+  margin-left: 5vw;
+  margin-top: 20vw;
+  color: white;
+  font-size: 5vw;
+
+  position: absolute;
+  z-index: 1;
+}
+
+#hero-link {
+  color: gold;
+  margin-left: 5vw;
+  margin-top: 26vw;
+  font-size: 5vw;
+
+  position: absolute;
+  z-index: 1;
+}
+#hero-link:hover {
+  color: darken(gold, 5%);
+}

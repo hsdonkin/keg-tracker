@@ -6,11 +6,13 @@ import Footer from "./components/Footer";
 import ProductCardView from "./components/ProductCardView";
 import ProductListView from "./components/ProductListView";
 import Product from "./components/Product";
+import Home from "./components/Home";
 
 const App = ({}) => (
   <Switch>
     <div>
       <Header />
+      <Route exact path="/" component={Home} />
       <Route exact path="/products" component={ProductCardView} />
       <Route exact path="/products/cards" component={ProductCardView} />
       <Route exact path="/products/list" component={ProductListView} />
