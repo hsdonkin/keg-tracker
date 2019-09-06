@@ -4,16 +4,14 @@ console.log(kegsData.kegs[0]);
 
 class ProductCard extends Component {
   render() {
-    const pintPrice = (kegsData.kegs[0].price / 124).toFixed(2);
+    const pintPrice = (this.props.keg.price / 124).toFixed(2);
     return (
       <div className="product-card">
-        <h2>{kegsData.kegs[0].name}</h2>
-        <h3>{kegsData.kegs[0].brand}</h3>
-        <p>{kegsData.kegs[0].description}</p>
-        <p>Ingredients: {kegsData.kegs[0].ingredients}</p>
+        <h2>{this.props.keg.name}</h2>
+        <h3>{this.props.keg.brand}</h3>
         <ul>
           <li>Pint Price: ${pintPrice}</li>
-          <li>Keg Price: ${kegsData.kegs[0].price}</li>
+          <li>Keg Price: ${this.props.keg.price}</li>
         </ul>
       </div>
     );
