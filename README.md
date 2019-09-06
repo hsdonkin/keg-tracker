@@ -22,6 +22,10 @@ _Front end of an application to view available kegs in a taproom, and display st
 
 ## React Component Schema
 
+<p align="center">
+<img src="https://github.com/hsdonkin/keg-tracker/blob/master/src/assets/react-components-diagram.png">
+</p>
+
 ## Link to GitHub Pages
 
 _Link to GitHub repo:_
