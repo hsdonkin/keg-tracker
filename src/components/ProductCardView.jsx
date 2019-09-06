@@ -12,6 +12,7 @@ class ProductCardView extends Component {
     return (
       <React.Fragment>
         <div className="product-nav">
+          <h2>Products</h2>
           <Link to="/products/cards">Card View</Link>
           <Link to="/products/list">List View</Link>
         </div>

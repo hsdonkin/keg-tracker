@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server -d",
+    "start": "cross-env NODE_ENV=development webpack-dev-server -d --inline --content-base . --history-api-fallback",
     "build": "cross-env NODE_ENV=production webpack -p",
     "test": "jest"
   },

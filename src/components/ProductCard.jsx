@@ -25,6 +25,9 @@ class ProductCard extends Component {
           <li style={goodDealStyle}>Pint Price: ${pintPrice}</li>
           <li>Keg Price: ${this.props.keg.price}</li>
         </ul>
+        <Link to={`/products/` + this.props.keg.id} className="details-btn">
+          Details
+        </Link>
       </div>
     );
   }

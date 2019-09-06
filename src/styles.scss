@@ -31,6 +31,7 @@ hr {
   width: 30%;
   margin: auto;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .product-card-wrapper {
@@ -40,7 +41,7 @@ hr {
 .product-card {
   display: inline-block;
   width: 15rem;
-  height: 8rem;
+  height: 10rem;
   border: 2px whitesmoke solid;
   border-radius: 10px;
   padding: 1rem;
@@ -67,8 +68,107 @@ hr {
 .product-card ul {
   margin: 0;
   padding: 0;
+  margin-bottom: 1rem;
 }
 .product-card li {
   font-size: 1rem;
   list-style: none;
+}
+
+.details-btn {
+  color: white;
+  background-color: lightgray;
+  margin-top: 1rem;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.details-btn:hover {
+  background-color: darken(gold, 10%);
+  color: white;
+}
+
+.product-list-wrapper {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+}
+
+.product-list {
+  text-align: left;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  border: 1px lightgray solid;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.product-list h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.product-list h3 {
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-list p {
+  margin-top: 0;
+  font-style: italic;
+  color: gray;
+}
+
+.product-list ul {
+  margin-left: 0;
+  padding: 0;
+}
+
+.product-list li {
+  list-style: none;
+}
+
+.product-display-holder {
+  width: 80%;
+  margin: auto;
+}
+.product-image-holder {
+  display: inline-block;
+  width: 50%;
+  border: none;
+  margin: none;
+  margin-top: 1.5rem;
+  object-fit: cover;
+}
+.product-image-holder img {
+  border-radius: 30px;
+  height: 100%;
+  width: 100%;
+}
+
+.product-info {
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  width: 40%;
+  border: none;
+  margin: none;
+}
+
+.product-info h2 {
+  font-size: 1.2rem;
+}
+
+.product-info hr {
+  margin-left: 0;
+}
+
+.product-info h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-info p {
+  font-style: italic;
+  color: gray;
 }
