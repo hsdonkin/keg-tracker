@@ -3,7 +3,7 @@ import kegsData from "./../assets/kegsData.json";
 
 class ProductList extends Component {
   render() {
-    const pintPrice = (this.props.keg.price / 124).toFixed(2);
+    const pintPrice = (this.props.keg.price / 100).toFixed(2);
     return (
       <div className="product-list">
         <h2>{this.props.keg.name}</h2>

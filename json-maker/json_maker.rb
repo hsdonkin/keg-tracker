@@ -4,10 +4,13 @@ require 'json'
 keglist = {:kegs => []}
 
 
-
+id_counter = 0;
 
 500.times do
-  hash = {:name => Faker::Beer.name,
+  id_counter += 1
+  hash = {
+    :id => id_counter,
+    :name => Faker::Beer.name,
     :brand => Faker::Beer.brand,
     :price => rand(237..296),
     :abv => rand(3.2..7).round(2),
@@ -22,6 +25,6 @@ json = keglist.to_json
 
 Dir.chdir './src/assets'
 
-File.open("kegs-sample.json", "w") do |f|
+File.open("kegsData.json", "w") do |f|
   f.write(json)
 end

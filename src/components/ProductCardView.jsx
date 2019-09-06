@@ -6,15 +6,17 @@ import kegsData from "./../assets/kegsData.json";
 class ProductCardView extends Component {
   render() {
     const productCards = kegsData.kegs.map((keg, index) => (
-      <ProductCard keg={keg} key={index} />
+      <ProductCard keg={keg} key={keg.id} />
     ));
 
     return (
-      <div>
-        <Link to="/products/cards">Card View</Link>
-        <Link to="/products/list">List View</Link>
-        {productCards}
-      </div>
+      <React.Fragment>
+        <div className="product-nav">
+          <Link to="/products/cards">Card View</Link>
+          <Link to="/products/list">List View</Link>
+        </div>
+        <div className="product-card-wrapper">{productCards}</div>
+      </React.Fragment>
     );
   }
 }

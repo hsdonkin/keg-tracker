@@ -6,15 +6,17 @@ import ProductList from "./ProductList";
 class ProductListView extends Component {
   render() {
     const productListItems = kegsData.kegs.map((keg, index) => (
-      <ProductList keg={keg} key={index} />
+      <ProductList keg={keg} key={keg.id} />
     ));
 
     return (
-      <div>
-        <Link to="/products/cards">Card View</Link>
-        <Link to="/products/list">List View</Link>
-        {productListItems}
-      </div>
+      <React.Fragment>
+        <div className="product-nav">
+          <Link to="/products/cards">Card View</Link>
+          <Link to="/products/list">List View</Link>
+        </div>
+        <div className="product-list-wrapper">{productListItems}</div>
+      </React.Fragment>
     );
   }
 }
