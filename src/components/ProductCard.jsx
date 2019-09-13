@@ -22,11 +22,14 @@ class ProductCard extends Component {
       if (this.props.path == "/admin/products") {
         return (
           <React.Fragment>
-            <h3>Pints Remaining: {this.props.keg.pints_remain}</h3>
-            <AddSubtractPints
-              keg={this.props.keg}
-              onKegVolumeChange={this.props.onKegVolumeChange}
-            />
+            <div className="admin-buttons">
+              <h3>Pints Remaining: {this.props.keg.pints_remain}</h3>
+              <AddSubtractPints
+                keg={this.props.keg}
+                onKegVolumeChange={this.props.onKegVolumeChange}
+              />
+              <button>Edit</button>
+            </div>
           </React.Fragment>
         );
       }

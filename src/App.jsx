@@ -24,7 +24,6 @@ class App extends React.Component {
     keg.id = id;
     tempState.kegsList.push(keg);
     this.setState(tempState);
-    console.log("App State Updated: ", this.state);
   };
 
   // need some logic to update the state of a specific keg, to alter the pints_remain
@@ -34,23 +33,24 @@ class App extends React.Component {
     // filter through the list and find the keg with the matching ID
     let selectedKeg = tempKegsList.filter((keg, index) => {
       if (keg.id === kegToChange.id) {
+        // splice needs a second argument that is the number of things to take away
+        // this led to a funny glitch where it would delete everything from the array after the thing changed
+        // oops
         tempKegsList.splice(index, 1);
-        console.log("This is temp kegs lists after splice", tempKegsList);
         return keg;
       }
     })[0];
-    console.log("SelectedKeg in handleKegVolumeChange", selectedKeg);
-    console.log(this.state);
     selectedKeg.pints_remain += amount;
     tempKegsList.push(selectedKeg);
-    console.log("This is the tempKegsList before setState", tempKegsList);
+    // sort tempKegsList by ID to keep things in order on the page after pushing it
+    tempKegsList.sort(function(a, b) {
+      return a.id - b.id;
+    });
     this.setState({ kegsList: tempKegsList });
     this.forceUpdate();
-    console.log(this.state);
   };
 
   render() {
-    console.log("This is app state in render", this.state);
     return (
       <div>
         <Header />

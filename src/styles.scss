@@ -41,7 +41,7 @@ hr {
 .product-card {
   display: inline-block;
   width: 15rem;
-  height: 10rem;
+  min-height: 10rem;
   border: 2px whitesmoke solid;
   border-radius: 10px;
   padding: 1rem;
@@ -86,6 +86,10 @@ hr {
 .details-btn:hover {
   background-color: darken(gold, 10%);
   color: white;
+}
+
+.admin-buttons {
+  margin-bottom: 1rem;
 }
 
 .product-list-wrapper {
