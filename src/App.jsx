@@ -34,7 +34,8 @@ class App extends React.Component {
     // filter through the list and find the keg with the matching ID
     let selectedKeg = tempKegsList.filter((keg, index) => {
       if (keg.id === kegToChange.id) {
-        tempKegsList.splice(index);
+        tempKegsList.splice(index, 1);
+        console.log("This is temp kegs lists after splice", tempKegsList);
         return keg;
       }
     })[0];
@@ -42,11 +43,14 @@ class App extends React.Component {
     console.log(this.state);
     selectedKeg.pints_remain += amount;
     tempKegsList.push(selectedKeg);
-    this.setState(tempKegsList);
+    console.log("This is the tempKegsList before setState", tempKegsList);
+    this.setState({ kegsList: tempKegsList });
+    this.forceUpdate();
     console.log(this.state);
   };
 
   render() {
+    console.log("This is app state in render", this.state);
     return (
       <div>
         <Header />
