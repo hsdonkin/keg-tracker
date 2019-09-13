@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import AddSubtractPints from "./AddSubtractPints";
 
 class ProductCard extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     const pintPrice = (this.props.keg.price / 50).toFixed(2);
 
@@ -20,7 +23,10 @@ class ProductCard extends Component {
         return (
           <React.Fragment>
             <h3>Pints Remaining: {this.props.keg.pints_remain}</h3>
-            <AddSubtractPints />
+            <AddSubtractPints
+              keg={this.props.keg}
+              onKegVolumeChange={this.props.onKegVolumeChange}
+            />
           </React.Fragment>
         );
       }

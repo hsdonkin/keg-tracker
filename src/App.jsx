@@ -28,13 +28,22 @@ class App extends React.Component {
   };
 
   // need some logic to update the state of a specific keg, to alter the pints_remain
-  handleKegVolumeChange = kegToChange => {
-    // let tempState = this.state;
-    // let selectedKeg = tempState.kegsList.filter(keg => {
-    //   if (keg.id === kegToChange.id) {
-    //     return keg;
-    //   }
-    // });
+  handleKegVolumeChange = (kegToChange, amount) => {
+    // have to slice here so that tempKegsList doesn't point to the array in state
+    let tempKegsList = this.state.kegsList.slice();
+    // filter through the list and find the keg with the matching ID
+    let selectedKeg = tempKegsList.filter((keg, index) => {
+      if (keg.id === kegToChange.id) {
+        tempKegsList.splice(index);
+        return keg;
+      }
+    })[0];
+    console.log("SelectedKeg in handleKegVolumeChange", selectedKeg);
+    console.log(this.state);
+    selectedKeg.pints_remain += amount;
+    tempKegsList.push(selectedKeg);
+    this.setState(tempKegsList);
+    console.log(this.state);
   };
 
   render() {
@@ -51,6 +60,7 @@ class App extends React.Component {
                 kegsList={this.state.kegsList}
                 path={props.location.pathname}
                 onNewKegListItem={this.handleNewKegListItem}
+                onKegVolumeChange={this.handleKegVolumeChange}
               />
             )}
           />
@@ -62,6 +72,7 @@ class App extends React.Component {
                 kegsList={this.state.kegsList}
                 path={props.location.pathname}
                 onNewKegListItem={this.handleNewKegListItem}
+                onKegVolumeChange={this.handleKegVolumeChange}
               />
             )}
           />
@@ -73,6 +84,7 @@ class App extends React.Component {
                 kegsList={this.state.kegsList}
                 path={props.location.pathname}
                 onNewKegListItem={this.handleNewKegListItem}
+                onKegVolumeChange={this.handleKegVolumeChange}
               />
             )}
           />
@@ -84,6 +96,7 @@ class App extends React.Component {
                 kegsList={this.state.kegsList}
                 path={props.location.pathname}
                 onNewKegListItem={this.handleNewKegListItem}
+                onKegVolumeChange={this.handleKegVolumeChange}
               />
             )}
           />

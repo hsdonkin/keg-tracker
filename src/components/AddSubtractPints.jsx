@@ -1,12 +1,22 @@
 import React from "react";
 
-function AddSubtractPints(props) {
-  return (
-    <React.Fragment>
-      <button>+</button>
-      <button>-</button>
-    </React.Fragment>
-  );
+class AddSubtractPints extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleClick = (keg, amount) => {
+    this.props.onKegVolumeChange(keg, amount);
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <button onClick={() => this.handleClick(this.props.keg, 1)}>+</button>
+        <button onClick={() => this.handleClick(this.props.keg, -1)}>-</button>
+      </React.Fragment>
+    );
+  }
 }
 
 export default AddSubtractPints;
