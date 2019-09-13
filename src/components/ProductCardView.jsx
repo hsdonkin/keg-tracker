@@ -11,6 +11,7 @@ function ProductCardView(props) {
       key={keg.id}
       path={props.path}
       onKegVolumeChange={props.onKegVolumeChange}
+      onKegEdit={props.onKegEdit}
     />
   ));
 

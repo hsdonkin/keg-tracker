@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import Test from "./components/Test";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductCardView from "./components/ProductCardView";
@@ -43,6 +42,30 @@ class App extends React.Component {
     selectedKeg.pints_remain += amount;
     tempKegsList.push(selectedKeg);
     // sort tempKegsList by ID to keep things in order on the page after pushing it
+    tempKegsList.sort(function(a, b) {
+      return a.id - b.id;
+    });
+    this.setState({ kegsList: tempKegsList });
+    this.forceUpdate();
+  };
+
+  handleKegEdit = (kegToChange, kegWithChanges) => {
+    // haha what is dry code
+    // really though this broke for some reason when I tried to outsource it to a function returning the selected keg
+    // have to slice here so that tempKegsList doesn't point to the array in state
+    let tempKegsList = this.state.kegsList.slice();
+    // filter through the list and find the keg with the matching ID
+    let selectedKeg = tempKegsList.filter((keg, index) => {
+      if (keg.id === kegToChange.id) {
+        // splice needs a second argument that is the number of things to take away
+        // this led to a funny glitch where it would delete everything from the array after the thing changed
+        // oops
+        tempKegsList.splice(index, 1);
+        return keg;
+      }
+    })[0];
+    // can kinda just throw away the old keg here after we pull it out of array
+    tempKegsList.push(kegWithChanges);
     tempKegsList.sort(function(a, b) {
       return a.id - b.id;
     });
@@ -101,6 +124,7 @@ class App extends React.Component {
                 path={props.location.pathname}
                 onNewKegListItem={this.handleNewKegListItem}
                 onKegVolumeChange={this.handleKegVolumeChange}
+                onKegEdit={this.handleKegEdit}
               />
             )}
           />
