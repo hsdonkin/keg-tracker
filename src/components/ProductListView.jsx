@@ -11,7 +11,7 @@ function ProductListView(props) {
 
   return (
     <React.Fragment>
-      <NewKegForm />
+      <NewKegForm onNewKegListItem={props.onNewKegListItem} />
       <div className="product-nav">
         <h2>Products</h2>
         <Link to="/products/cards">Card View</Link>

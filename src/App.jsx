@@ -17,6 +17,13 @@ class App extends React.Component {
     };
   }
 
+  handleNewKegListItem = keg => {
+    let tempState = this.state;
+    tempState.kegsList.push(keg);
+    this.setState(tempState);
+    console.log("App State Updated: ", this.state);
+  };
+
   render() {
     return (
       <Switch>
@@ -30,6 +37,7 @@ class App extends React.Component {
               <ProductCardView
                 kegsList={this.state.kegsList}
                 path={props.location.pathname}
+                onNewKegListItem={this.handleNewKegListItem}
               />
             )}
           />
@@ -40,6 +48,7 @@ class App extends React.Component {
               <ProductCardView
                 kegsList={this.state.kegsList}
                 path={props.location.pathname}
+                onNewKegListItem={this.handleNewKegListItem}
               />
             )}
           />
@@ -50,6 +59,7 @@ class App extends React.Component {
               <ProductListView
                 kegsList={this.state.kegsList}
                 path={props.location.pathname}
+                onNewKegListItem={this.handleNewKegListItem}
               />
             )}
           />
