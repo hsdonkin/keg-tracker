@@ -6,7 +6,7 @@ import NewKegForm from "./NewKegForm";
 
 function ProductCardView(props) {
   const productCards = props.kegsList.map((keg, index) => (
-    <ProductCard keg={keg} key={keg.id} />
+    <ProductCard keg={keg} key={keg.id} path={props.path} />
   ));
 
   // conditional rending for NewKegForm based on whether path includes admin

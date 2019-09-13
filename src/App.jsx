@@ -27,11 +27,21 @@ class App extends React.Component {
     console.log("App State Updated: ", this.state);
   };
 
+  // need some logic to update the state of a specific keg, to alter the pints_remain
+  handleKegVolumeChange = kegToChange => {
+    // let tempState = this.state;
+    // let selectedKeg = tempState.kegsList.filter(keg => {
+    //   if (keg.id === kegToChange.id) {
+    //     return keg;
+    //   }
+    // });
+  };
+
   render() {
     return (
-      <Switch>
-        <div>
-          <Header />
+      <div>
+        <Header />
+        <Switch>
           <Route exact path="/" component={Home} />
           <Route
             exact
@@ -77,9 +87,9 @@ class App extends React.Component {
               />
             )}
           />
-          <Footer />
-        </div>
-      </Switch>
+        </Switch>
+        <Footer />
+      </div>
     );
   }
 }
