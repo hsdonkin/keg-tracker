@@ -6,7 +6,7 @@ keglist = {:kegs => []}
 
 id_counter = 0;
 
-500.times do
+100.times do
   id_counter += 1
   hash = {
     :id => id_counter,
@@ -23,7 +23,7 @@ end
 
 json = keglist.to_json
 
-Dir.chdir './src/assets'
+
 
 File.open("kegsData.json", "w") do |f|
   f.write(json)
