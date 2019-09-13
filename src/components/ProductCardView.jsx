@@ -9,9 +9,19 @@ function ProductCardView(props) {
     <ProductCard keg={keg} key={keg.id} />
   ));
 
+  // conditional rending for NewKegForm based on whether path includes admin
+  const AdminKegFormCheck = () => {
+    if (
+      props.path === "/admin/products" ||
+      props.path === "/admin/products/cardview"
+    ) {
+      return <NewKegForm onNewKegListItem={props.onNewKegListItem} />;
+    }
+  };
+
   return (
     <React.Fragment>
-      <NewKegForm onNewKegListItem={props.onNewKegListItem} />
+      {AdminKegFormCheck()}
       <div className="product-nav">
         <h2>Products</h2>
         <Link to="/products/cards">Card View</Link>

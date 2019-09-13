@@ -66,7 +66,17 @@ class App extends React.Component {
               />
             )}
           />
-
+          <Route
+            exact
+            path="/admin/products"
+            render={props => (
+              <ProductCardView
+                kegsList={this.state.kegsList}
+                path={props.location.pathname}
+                onNewKegListItem={this.handleNewKegListItem}
+              />
+            )}
+          />
           <Footer />
         </div>
       </Switch>
