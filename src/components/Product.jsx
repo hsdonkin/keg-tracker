@@ -3,7 +3,6 @@ import kegsData from "./../assets/kegsData.json";
 
 class Product extends Component {
   render() {
-    console.log(this.props.match);
     // const pintPrice = (
     //   kegsData.kegs[this.props.match.params.id].price / 50
     // ).toFixed(2);

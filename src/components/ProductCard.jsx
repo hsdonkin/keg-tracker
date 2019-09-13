@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import kegsData from "./../assets/kegsData.json";
 import { Link } from "react-router-dom";
-console.log(kegsData.kegs[0]);
 
 class ProductCard extends Component {
   render() {

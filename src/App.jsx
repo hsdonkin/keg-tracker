@@ -7,19 +7,58 @@ import ProductCardView from "./components/ProductCardView";
 import ProductListView from "./components/ProductListView";
 import Product from "./components/Product";
 import Home from "./components/Home";
+import kegsData from "./assets/kegsData.json";
 
-const App = ({}) => (
-  <Switch>
-    <div>
-      <Header />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/products" component={ProductCardView} />
-      <Route exact path="/products/cards" component={ProductCardView} />
-      <Route exact path="/products/list" component={ProductListView} />
-      <Route exact path="/products/:id" component={Product} />
-      <Footer />
-    </div>
-  </Switch>
-);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      kegsList: kegsData.kegs
+    };
+  }
+
+  render() {
+    return (
+      <Switch>
+        <div>
+          <Header />
+          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/products"
+            render={props => (
+              <ProductCardView
+                kegsList={this.state.kegsList}
+                path={props.location.pathname}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/products/cards"
+            render={props => (
+              <ProductCardView
+                kegsList={this.state.kegsList}
+                path={props.location.pathname}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/products/list"
+            render={props => (
+              <ProductListView
+                kegsList={this.state.kegsList}
+                path={props.location.pathname}
+              />
+            )}
+          />
+
+          <Footer />
+        </div>
+      </Switch>
+    );
+  }
+}
 
 export default App;
