@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import kegsData from "./../assets/kegsData.json";
 import ProductList from "./ProductList";
+import NewKegForm from "./NewKegForm";
 
 function ProductListView(props) {
   const productListItems = props.kegsList.map((keg, index) => (
@@ -10,6 +11,7 @@ function ProductListView(props) {
 
   return (
     <React.Fragment>
+      <NewKegForm />
       <div className="product-nav">
         <h2>Products</h2>
         <Link to="/products/cards">Card View</Link>
