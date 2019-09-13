@@ -19,6 +19,9 @@ class App extends React.Component {
 
   handleNewKegListItem = keg => {
     let tempState = this.state;
+    // extra step to create the ID for the keg
+    let id = Math.max(...this.state.kegsList.map(keg => keg.id)) + 1;
+    keg.id = id;
     tempState.kegsList.push(keg);
     this.setState(tempState);
     console.log("App State Updated: ", this.state);
