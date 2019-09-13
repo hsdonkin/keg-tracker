@@ -42,7 +42,6 @@ class NewKegForm extends React.Component {
   };
 
   render() {
-    console.log("Keg Form Props in Render", this.props);
     return (
       <form onSubmit={this.handleFormSubmit}>
         <input onChange={this.handleChange} name="name" placeholder="Name" />
